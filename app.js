@@ -6,18 +6,26 @@ const http = require("http");
 
 const server = http.createServer((req, res) => {
     const url = req.url;
+
+    //hompage
+
     if(url === "/") {
     res.writeHead(200, {"content-type":"text/html"})
     res.write(
             "<h1>Homepage</h1><div><p>Here you'll find cotten candy and rides and all sorts of surprises</p></div>")
     res.end()
         }
-    if(url === "/about") {
+    // about
+    else if(url === "/about") {
     res.writeHead(200, {"content-type": "text/html"})
     res.write("<h1>About</h1>")
     res.end()
-        }} 
-   
+        } 
+
+    else {
+
+     }
+    }
     )
 
     
