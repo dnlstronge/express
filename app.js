@@ -35,13 +35,13 @@ const server = http.createServer((req, res) => {
   }
   // logo
   else if (url === "/logo.svg") {
-    res.writeHead(200, { "content-type": "text/svg" });
+    res.writeHead(200, { "content-type": "image/svg+xml" });
     res.write(homeLogo);
     res.end();
   } 
   // logic
   else if (url === "/browser-app.js") {
-    res.writeHead(200, { "content-type": "text/js" });
+    res.writeHead(200, { "content-type": "text/javascript" });
     res.write(homeLogic);
     res.end();
   }
