@@ -1,8 +1,13 @@
 const http = require("http");
+const { readFileSync } = require("fs");
 
 
 // [1] - provide more info to the browser
 // [2] - deal with the request
+
+// get files: 
+
+const homepage = readFileSync("./index.html") // required upon initialisation
 
 const server = http.createServer((req, res) => {
     const url = req.url;
@@ -11,8 +16,7 @@ const server = http.createServer((req, res) => {
 
     if(url === "/") {
         res.writeHead(200, {"content-type":"text/html"})
-        res.write(
-                "<h1>Homepage</h1><div><p>Here you'll find cotten candy and rides and all sorts of surprises</p></div>")
+        res.write(homepage)
         res.end()
         }
     // about
