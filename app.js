@@ -9,6 +9,10 @@ const app = require("express")();
         res.send("About me")
     })
 
+    app.all("*", (req, res) => {
+        res.send("<h1>Error - resource not found</h1>")
+    })
+
     app.listen(5001, () => {
         console.log("server is listening on port 5001");
     });
