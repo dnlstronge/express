@@ -3,7 +3,10 @@ const app = express()
 const path = require("path")
 
 
+// [1] - adding to static assets
+// [2] - SSR and template engine
 
+// set up static and middleware
     app.use(express.static("./public"))
 
     app.get("/", (req, res) => {
