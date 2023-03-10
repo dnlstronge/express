@@ -3,10 +3,10 @@ const app = require("express")();
 
 
     app.get("/", (req, res) => {
-        res.send("Homepage")
+        res.status(200).send("Homepage")
     });
     app.get("/about", (req, res) => {
-        res.send("About me")
+        res.status(200).send("About me")
     })
 
     app.all("*", (req, res) => {
