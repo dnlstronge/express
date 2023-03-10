@@ -10,7 +10,7 @@ const app = require("express")();
     })
 
     app.all("*", (req, res) => {
-        res.send("<h1>Error - resource not found</h1>")
+        res.status(404).send("<h1>Error - resource not found</h1>")
     })
 
     app.listen(5001, () => {
