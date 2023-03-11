@@ -29,6 +29,13 @@ app.get("/api/products/:productID", (req, res) => {
     res.json(singleProduct)
 })
 
+// more complex params example: 
+
+app.get("/api/products/v1/query", (req, res) => {
+   console.log(req.query)
+   res.send("hello matey!!")
+})
+
 app.listen(5001, () => {
   console.log("Listening on port 5001");
 });
