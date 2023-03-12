@@ -8,8 +8,9 @@ const authorize = require("./authorize")
 // to use multiple place in array in .use()
 
 // - [1] .use() or route
-// - [2] options: create own / express / third party
+// - [2] options: create own / express (ref docs + supply values) / third party (install it)
 
+app.use(express.static("./public")) // .use expects middleware as an agrument e.g static
 //app.use([logger, authorize]) // note: executed in order of array
 
 app.get("/", (req, res) => {
