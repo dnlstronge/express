@@ -8,7 +8,7 @@ const authorize = require("./authorize")
 // to use multiple place in array in .use()
 
 
-app.use([logger, authorize])
+app.use([logger, authorize]) // note: executed in order of array
 
 app.get("/", (req, res) => {
   res.send("Home");
