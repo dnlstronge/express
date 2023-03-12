@@ -5,7 +5,7 @@ const logger = require("./logger")
 // req => middleware => res
 
 
-app.get("/", logger, (req, res) => {
+app.get("/", (req, res) => {
   res.send("Home");
 
 });
@@ -13,6 +13,17 @@ app.get("/", logger, (req, res) => {
 app.get("/about", (req, res, next) => {
   res.send("About");
 });
+
+app.get("/api/products", (req, res) => {
+  res.send("Home");
+
+});
+
+app.get("/api/items", (req, res, next) => {
+  res.send("About");
+});
+
+
 
 app.listen(5005, () => {
   console.log("listening on port 5005");
