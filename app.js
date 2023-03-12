@@ -24,7 +24,9 @@ app.get("/api/products", (req, res) => {
 
 });
 
-app.get("/api/items", (req, res, next) => {
+// if you wanted to add multiple MW to an individial route ===>
+
+app.get("/api/items", [logger, authorize], (req, res, next) => {
   console.log(req.user)
   res.send("Items");
 });
