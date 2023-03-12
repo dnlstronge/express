@@ -7,8 +7,10 @@ const authorize = require("./authorize")
 // demo using additional middleware functions
 // to use multiple place in array in .use()
 
+// - [1] .use() or route
+// - [2] options: create own / express / third party
 
-app.use([logger, authorize]) // note: executed in order of array
+//app.use([logger, authorize]) // note: executed in order of array
 
 app.get("/", (req, res) => {
   res.send("Home");
