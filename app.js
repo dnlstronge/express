@@ -8,7 +8,7 @@ const logger = (req, res, next) => {
   const url = req.url;
   const time = new Date().getFullYear();
   console.log(method, url, time);
-  res.send("testing 1..2....3")
+  res.send("testing 1..2....3") // terminate cycle or use next
 };
 // reference function after path, before req/res
 // express passes req/res objects into middleware function but also needs "next" (above)
