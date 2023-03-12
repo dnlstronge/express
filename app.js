@@ -4,7 +4,10 @@ const logger = require("./logger")
 
 // req => middleware => res
 // applies to all => invokes for any route but order matters here!
-app.use(logger)
+// this is why you would normally see .use at the top
+// a path may also be sepcified in .use()
+// in this case as "/api" is specified, it will apply to both products and items
+app.use("/api", logger)
 
 app.get("/", (req, res) => {
   res.send("Home");
