@@ -3,7 +3,7 @@ const app = express();
 const logger = require("./logger")
 
 // req => middleware => res
-// applies to all =>
+// applies to all => invokes for any route but order matters here!
 app.use(logger)
 
 app.get("/", (req, res) => {
