@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const logger = require("./logger")
+const authorize = require("./authorize")
 
-// req => middleware => res
-// applies to all => invokes for any route but order matters here!
-// this is why you would normally see .use at the top
-// a path may also be sepcified in .use()
-// in this case as "/api" is specified, it will apply to both products and items
-app.use("/api", logger)
+
+// demo using additional middleware functions
+// to use multiple place in array in .use()
+
+
+app.use([logger, authorize])
 
 app.get("/", (req, res) => {
   res.send("Home");
@@ -32,3 +33,13 @@ app.get("/api/items", (req, res, next) => {
 app.listen(5005, () => {
   console.log("listening on port 5005");
 });
+
+
+// notes: 
+
+// req => middleware => res
+// applies to all => invokes for any route but order matters here!
+// this is why you would normally see .use at the top
+// a path may also be sepcified in .use()
+// in this case as "/api" is specified, it will apply to both products and items
+// the path = base, if omitted applies to all
