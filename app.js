@@ -3,7 +3,8 @@ const app = express();
 const logger = require("./logger")
 
 // req => middleware => res
-
+// applies to all =>
+app.use(logger)
 
 app.get("/", (req, res) => {
   res.send("Home");
@@ -15,12 +16,12 @@ app.get("/about", (req, res, next) => {
 });
 
 app.get("/api/products", (req, res) => {
-  res.send("Home");
+  res.send("Products");
 
 });
 
 app.get("/api/items", (req, res, next) => {
-  res.send("About");
+  res.send("Items");
 });
 
 
