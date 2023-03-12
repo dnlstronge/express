@@ -3,10 +3,14 @@ const app = express();
 
 // req => middleware => res
 
+const logger = () => {
+    const method = req.method;
+    const url = req.url;
+    const time = new Date().getFullYear();
+    console.log(method, url, time)
+}
+
 app.get("/", (req, res) => {
-  const method = req.method;
-  const url = req.url;
-  const time = new Date().getFullYear();
   res.send("Home");
 });
 
