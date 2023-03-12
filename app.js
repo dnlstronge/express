@@ -25,6 +25,7 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/api/items", (req, res, next) => {
+  console.log(req.user)
   res.send("Items");
 });
 
