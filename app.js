@@ -28,7 +28,9 @@ app.post("/api/people", (req, res) => {
 app.post("/api/people/postman", (req, res) => {
   const { name } = req.body;
   if (name) {
-    return res.status(201).json({ success: true, data: [...people, {id: 4, name: name}] });
+    return res
+      .status(201)
+      .json({ success: true, data: [...people, { id: 4, name: name }] });
   } else {
     return res
       .status(401)
@@ -45,10 +47,21 @@ app.post("/login", (req, res) => {
 });
 
 app.put("/api/people/:id", (req, res) => {
-  const {id} = req.params
-  const {name} = req.body
-  console.log(id)
-  console.log(name)
+  const { id } = req.params; // id specified from browser
+  const { name } = req.body; // body - what you want to change to
+  const person = people.find((person) => person.id === Number(id));
+  if (!person) {
+    res
+    .status(404)
+    .json({success: false, msg: `id: ${id} does not exist`});
+  }
+  const newPeople = people.map((person) => {
+    if(person.id === Number(id)) {
+      person.name = name
+    }
+    return person;
+  })
+  res.status(200).json({person})
 })
 
 app.listen(5005, () => {
