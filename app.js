@@ -8,7 +8,7 @@ let { people } = require("./data");
 app.use(express.static("./methods-public"))
 // parse form data
 app.use(express.urlencoded({extended: false}))
-
+// parse json (more middleware)
 
 // - reads data
 app.get("/api/people", (req, res) => {
@@ -16,7 +16,9 @@ app.get("/api/people", (req, res) => {
 })
 // just because URLs the same doesn't mean the route is as the methods are diff
 // - adds data
-app.post("./api.people", (req, res) => {})
+app.post("/api/people", (req, res) => {
+  res.status(201).send("SUCCESS")
+})
 
 app.post("/login", (req, res) => {
   const { name } = req.body
