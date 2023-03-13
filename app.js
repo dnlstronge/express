@@ -61,7 +61,7 @@ app.put("/api/people/:id", (req, res) => {
     }
     return person;
   })
-  res.status(200).json({person})
+  res.status(200).json({success: true, data: newPeople})
 })
 
 app.listen(5005, () => {
