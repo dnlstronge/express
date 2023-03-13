@@ -11,6 +11,10 @@ app.get("/api/people", (req, res) => {
   res.status(200).json({success: true, data: people})
 })
 
+app.post("/login", (req, res) => {
+  res.send("POST")
+})
+
 app.listen(5005, () => {
   console.log("listening on port 5005");
 });
