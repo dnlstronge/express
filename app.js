@@ -28,7 +28,7 @@ app.post("/api/people", (req, res) => {
 app.post("/api/people/postman", (req, res) => {
   const { name } = req.body;
   if (name) {
-    return res.status(201).json({ success: true, msg: `Hello ${name}` });
+    return res.status(201).json({ success: true, data: [...people, {id: 4, name: name}] });
   } else {
     return res
       .status(401)
