@@ -20,7 +20,7 @@ app.post("/api/people", (req, res) => {
   if (!name) {
     return res.status(400).json({ success: false, msg: "please enter a valid name" });
   } else {
-    res.status(201).json({success: true, msg: "SUCCESS" });
+    res.status(201).json({success: true, person: name, msg: "SUCCESS" });
   }
 });
 
