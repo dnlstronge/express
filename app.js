@@ -76,6 +76,7 @@ app.delete("/api/people/:id", (req, res) => {
   return res.status(200).json({success: true, data: newPeople})
 }) 
 
+// test in postman => delete functions 
 app.listen(5005, () => {
   console.log("listening on port 5005");
 });
