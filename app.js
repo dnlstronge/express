@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const people = require("./Routes/people")
+const auth = require("./Routes/auth");
 
 
 // static assets:
@@ -12,16 +13,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // api/people routes
 app.use("/api/people", people)
+app.use("/login", auth);
 
 
 
-app.post("/login", (req, res) => {
-  const { name } = req.body;
-  if (name) {
-    return res.status(200).send(`Welcome ${name}`);
-  }
-  res.status(401).send("Please provide user credentials");
-});
 
 // test in postman => delete functions 
 app.listen(5005, () => {
