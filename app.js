@@ -64,6 +64,8 @@ app.put("/api/people/:id", (req, res) => {
   res.status(200).json({success: true, data: newPeople})
 })
 
+app.delete("/api/people/:id") // when deleting not expecting anything in the body
+
 app.listen(5005, () => {
   console.log("listening on port 5005");
 });
