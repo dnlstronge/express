@@ -73,6 +73,7 @@ app.delete("/api/people/:id", (req, res) => {
     .json({success: false, msg: `id: ${req.params.id} does not exist`})
   }
   const newPeople = people.filter(person => person.id !== Number(req.params.id))
+  return res.status(200).json({success: true, data: newPeople})
 }) 
 
 app.listen(5005, () => {
