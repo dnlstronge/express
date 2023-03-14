@@ -51,7 +51,7 @@ router.get("/", (req, res) => {
   })
   
   // when deleting not expecting anything in the body
-  app.delete("/:id", (req, res) => {
+  router.delete("/:id", (req, res) => {
     const person = people.find((person) => person.id === Number(req.params.id))
     if(!person) {
       res
