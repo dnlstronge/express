@@ -1,16 +1,18 @@
 const express = require("express");
 const router = express.Router();
-let { people } = require("../data");
+const {
+  getPeople,
+  createPerson,
+  createPersonPostman,
+  updatePerson,
+  deletePerson,
+} = require("../Controllers/people");
 
+router.get("/", getPeople);
 
-router.get("/", )
-  
- router.post("/", );
- router.post("/postman", );
- router.put("/:id", )
-  
-  // when deleting not expecting anything in the body
-  router.delete("/:id", ) 
+router.post("/", createPerson);
+router.post("/postman", createPersonPostman);
+router.put("/:id", updatePerson);
+router.delete("/:id", deletePerson);
 
-  module.exports = router;
-  
+module.exports = router;

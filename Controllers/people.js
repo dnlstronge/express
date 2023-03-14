@@ -1,4 +1,4 @@
-
+let { people } = require("../data");
 
 
 
