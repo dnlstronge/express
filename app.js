@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-let { people } = require("./data");
+const people = require("./Routes/people")
+
 
 // static assets:
 
@@ -9,6 +10,8 @@ app.use(express.static("./methods-public"));
 app.use(express.urlencoded({ extended: false }));
 // parse json (more middleware)
 app.use(express.json());
+// api/people routes
+app.use("/api/people", people)
 
 
 
