@@ -1,7 +1,7 @@
 const express = require("express");
-const auth = express.Router();
+const router = express.Router();
 
-auth.post("/", (req, res) => {
+router.post("/", (req, res) => {
   const { name } = req.body;
   if (name) {
     return res.status(200).send(`Welcome ${name}`);
@@ -9,4 +9,4 @@ auth.post("/", (req, res) => {
   res.status(401).send("Please provide user credentials");
 });
 
-module.exports = auth;
+module.exports = router;
