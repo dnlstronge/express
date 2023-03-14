@@ -64,7 +64,16 @@ app.put("/api/people/:id", (req, res) => {
   res.status(200).json({success: true, data: newPeople})
 })
 
-app.delete("/api/people/:id") // when deleting not expecting anything in the body
+// when deleting not expecting anything in the body
+app.delete("/api/people/:id", (req, res) => {
+  const person = people.find((person) => person.id === Number(req.params.id))
+  if(!person) {
+    res
+    .status(404)
+    .json({success: false, msg: `id: ${req.params.id} does not exist`})
+  }
+  const newPeople = people.filter(person => person.id !== req.params.id )
+}) 
 
 app.listen(5005, () => {
   console.log("listening on port 5005");
